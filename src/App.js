@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import AllTweet from "./components/AllTweet/AllTweet";
+import MyTweet from "./components/MyTweet/MyTweet";
+import Navigation from "./components/Navigation/Navigation";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+      <div className="container-fluid mt-3">
+        <div className="col-md-2">
+          <Profile />
+        </div>
+        <div className="col-md-10">
+          <Routes>
+            <Route path="/" element={<AllTweet />} />
+            <Route path="/myTweet" element={<MyTweet />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
